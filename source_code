@@ -1,0 +1,60 @@
+#!/bin/bash
+ 
+# Script: calculator.sh
+ 
+# Function to add two numbers
+add() {
+    sum=$(( $1 + $2 ))
+    echo "Sum: $sum"
+}
+ 
+# Function to subtract two numbers
+subtract() {
+    difference=$(( $1 - $2 ))
+    echo "Difference: $difference"
+}
+ 
+# Function to multiply two numbers
+multiply() {
+    product=$(( $1 * $2 ))
+    echo "Product: $product"
+}
+ 
+# Function to divide two numbers
+divide() {
+    if [ $2 -eq 0 ]; then
+        echo "Error: Division by zero is not allowed."
+    else
+        quotient=$(( $1 / $2 ))
+        echo "Quotient: $quotient"
+    fi
+}
+ 
+# Main script starts here
+echo "Simple Calculator"
+echo "1. Add"
+echo "2. Subtract"
+echo "3. Multiply"
+echo "4. Divide"
+read -p "Enter your choice (1/2/3/4): " choice
+ 
+read -p "Enter first number: " num1
+read -p "Enter second number: " num2
+ 
+case $choice in
+    1)
+        add $num1 $num2
+        ;;
+    2)
+        subtract $num1 $num2
+        ;;
+    3)
+        multiply $num1 $num2
+        ;;
+    4)
+        divide $num1 $num2
+        ;;
+    *)
+        echo "Invalid choice"
+        ;;
+esac
